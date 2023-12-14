@@ -1,0 +1,16 @@
+﻿<Window x:Class="EShop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EShop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Login" Name="LoginButton" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="LoginButton_Click" IsEnabled="True" RenderTransformOrigin="1.16,0.834"/>
+        <Button Content="Sign up" Name="Signup" HorizontalAlignment="Left" Margin="67,10,0,0" VerticalAlignment="Top" Click="SignInButton_Click" IsEnabled="True" RenderTransformOrigin="1.16,0.834"/>
+        <Button Content="Logout" Name="logout" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Visibility="Collapsed" IsEnabled="False" Click="logout_Click" />
+        <TextBlock HorizontalAlignment="Left" Name="Username" Margin="16,12,0,0" TextWrapping="Wrap" Text="" IsEnabled="False" Visibility="Collapsed" VerticalAlignment="Top" Height="18" Width="139"/>
+        
+    </Grid>
+</Window>
