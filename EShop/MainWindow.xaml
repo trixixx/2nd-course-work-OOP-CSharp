@@ -7,10 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Login" Name="LoginButton" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="LoginButton_Click" IsEnabled="True" RenderTransformOrigin="1.16,0.834"/>
-        <Button Content="Sign up" Name="Signup" HorizontalAlignment="Left" Margin="67,10,0,0" VerticalAlignment="Top" Click="SignInButton_Click" IsEnabled="True" RenderTransformOrigin="1.16,0.834"/>
-        <Button Content="Logout" Name="logout" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Visibility="Collapsed" IsEnabled="False" Click="logout_Click" />
-        <TextBlock HorizontalAlignment="Left" Name="Username" Margin="16,12,0,0" TextWrapping="Wrap" Text="" IsEnabled="False" Visibility="Collapsed" VerticalAlignment="Top" Height="18" Width="139"/>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="797*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Login" Name="LoginButton" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Click="LoginButton_Click" IsEnabled="True" RenderTransformOrigin="1.16,0.834" Grid.Column="1"/>
+        <Button Content="Sign up" Name="Signup" HorizontalAlignment="Left" Margin="64,10,0,0" VerticalAlignment="Top" Click="SignInButton_Click" IsEnabled="True" RenderTransformOrigin="1.16,0.834" Grid.Column="1"/>
+        <Button Content="Logout" Name="logout" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Visibility="Collapsed" IsEnabled="False" Click="logout_Click" Grid.Column="1" />
+        <TextBlock HorizontalAlignment="Left" Name="Username" Margin="13,12,0,0" TextWrapping="Wrap" Text="" IsEnabled="False" Visibility="Collapsed" VerticalAlignment="Top" Height="18" Width="139" Grid.Column="1"/>
+        <Button Grid.Column="1" Content="Cart" Name="CartButton" HorizontalAlignment="Left" Margin="648,30,0,0" VerticalAlignment="Top" Click="CartButton_Click"/>
+        <ListBox Grid.Column="1" Name="productList" ItemsSource="{Binding products}" Margin="0,92,0,104"/>
+
     </Grid>
 </Window>

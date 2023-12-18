@@ -19,9 +19,15 @@ namespace EShop
     {
         List<AuthenticatedCustomer> users = new List<AuthenticatedCustomer>();
         List<Product> products = new List<Product>();
+        Product Colla = new Product("colla");
         public MainWindow()
         {
+            AnonymousCustomer customer = new AnonymousCustomer();
             InitializeComponent();
+            productList.DisplayMemberPath = "name"; 
+            products.Add(Colla);
+            productList.ItemsSource = products;
+            
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -102,104 +108,11 @@ namespace EShop
                 Username.Visibility= Visibility.Collapsed;
             }
         }
-    }
 
-    abstract class BaseUser
-    {
-        protected int id;
-        protected static int counter = 0;
-    }
-
-    abstract class Customer : BaseUser
-    {
-        public Cart cart { get; }
-        public Customer() 
-        { 
-            id = counter++;
-            cart = new Cart();
-        }
-    }
-    
-    class AnonymousCustomer : Customer
-    {
-    }
-
-    class AuthenticatedCustomer : Customer
-    {
-        public string login { get; private set; }
-        private string password;
-        public string Name, Adress;
-
-        public bool IsActive { get; private set; }
-
-        public AuthenticatedCustomer(string login, string password, string name, string adress) : base()
+        private void CartButton_Click(object sender, RoutedEventArgs e)
         {
-            this.login = login; this.password = password;
-            this.Adress = adress; this.Name = name;
-        }
-
-        public void Login(string password)
-        {
-            if (password == this.password)
-            {
-                this.IsActive = true;
-                return;
-            }
-            throw new ArgumentException();
-        }
-        public void Logout()
-        { this.IsActive = false; }
-    }
-
-    class Product
-    {
-        public int id { get; }
-        private static int counter = 0;
-        public string name { get; }
-        public string? description { get; set; }
-        public double price { get; set; }
-        public Product(string _name)
-        {
-            id = counter++;
-            name = _name;
-        }
-    }
-
-    class Cart
-    {
-        public int id;
-        public List<Product> products = new List<Product>();
-        public void Clear() { products.Clear(); }
-        public void Add(Product product) { products.Add(product); }
-        public void Remove(Product product) { products.Remove(product);}
-    }
-
-    class Subscription : Cart
-    {
-        public int period;
-        public Subscription(Cart c)
-        {
-            this.id = c.id;
-            this.products = c.products;
-        }
-    }
-
-    class Order
-    {
-        public string CustomerName;
-        public string Adress;
-        public double Price;
-        public bool IsPayed { get; private set; }
-
-        public Order(Cart c, string customername, string adress)
-        {
-            this.CustomerName = customername;
-            this.Adress = adress;
-            this.Price = 0;
-            foreach (var pr in c.products)
-            {
-                this.Price += pr.price;
-            }
+            CartWindow cartWindow = new CartWindow();
+            cartWindow.Show();
         }
     }
 }
