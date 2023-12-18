@@ -17,16 +17,11 @@ namespace EShop
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<AuthenticatedCustomer> users = new List<AuthenticatedCustomer>();
-        List<Product> products = new List<Product>();
-        Product Colla = new Product("colla");
+        List<AuthenticatedCustomer> customers = new List<AuthenticatedCustomer>();
+        Customer current_customer = new AnonymousCustomer();
         public MainWindow()
         {
-            AnonymousCustomer customer = new AnonymousCustomer();
             InitializeComponent();
-            productList.DisplayMemberPath = "name"; 
-            products.Add(Colla);
-            productList.ItemsSource = products;
             
         }
 
@@ -36,12 +31,13 @@ namespace EShop
 
             if (loginWindow.ShowDialog() == true)
             {
-                AuthenticatedCustomer res = users.Find(x => x.login == loginWindow.Login)!;
+                AuthenticatedCustomer res = customers.Find(x => x.login == loginWindow.Login)!;
                 if (res != null)
                 {
                     try
                     {
                         res.Login(loginWindow.Password);
+                        current_customer = res;
                         logout.IsEnabled = true;
                         logout.Visibility = Visibility.Visible;
                         LoginButton.IsEnabled = false;
@@ -78,8 +74,9 @@ namespace EShop
                     (
                     signupwindow.Login, signupwindow.Password, signupwindow.Name, signupwindow.Adress
                     );
-                users.Add(newCustomer);
+                customers.Add(newCustomer);
                 newCustomer.Login(signupwindow.Password);
+                current_customer = newCustomer;
                 logout.IsEnabled = true;
                 logout.Visibility = Visibility.Visible;
                 LoginButton.IsEnabled = false;
@@ -94,10 +91,11 @@ namespace EShop
 
         private void logout_Click(object sender, RoutedEventArgs e)
         {
-            AuthenticatedCustomer CurrentCustomer = users.Find(x => x.IsActive == true)!;
+            AuthenticatedCustomer CurrentCustomer = customers.Find(x => x.IsActive == true)!;
             if (CurrentCustomer is not null)
             {
                 CurrentCustomer.Logout();
+                current_customer = new AnonymousCustomer();
                 logout.IsEnabled = false;
                 logout.Visibility= Visibility.Collapsed;
                 LoginButton.IsEnabled = true;
