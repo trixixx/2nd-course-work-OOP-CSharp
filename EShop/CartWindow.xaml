@@ -15,5 +15,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button Content="Order" Name="OrderButton" HorizontalAlignment="Center" Margin="0,379,0,0" VerticalAlignment="Center" Height="32" Width="146" Click="OrderButton_Click"/>
+        <Button Content="Turn into Subscription" Name="subButton" HorizontalAlignment="Left" Margin="574,386,0,0" VerticalAlignment="Top" Height="32" Width="142" Click="subButton_Click"/>
     </Grid>
 </Window>

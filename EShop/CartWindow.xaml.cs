@@ -40,5 +40,19 @@ namespace EShop
             }
             orderWindow.Show();
         }
+
+        private void subButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_customer is AuthenticatedCustomer)
+            {
+                Subscription subscription = new Subscription(_customer.cart);
+                subscription.period = 1;
+                _customer.cart.products.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Войдите чтобы создать подписку на продукты");
+            }
+        }
     }
 }
