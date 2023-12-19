@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="CartWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListBox x:Name="products" ItemsSource="{Binding Path=products}" Margin="0,0,0,75">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Order" Name="OrderButton" HorizontalAlignment="Center" Margin="0,379,0,0" VerticalAlignment="Center" Height="32" Width="146" Click="OrderButton_Click"/>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EShop
 {
-    class Product
+    public class Product
     {
         public int id { get; }
         private static int counter = 0;

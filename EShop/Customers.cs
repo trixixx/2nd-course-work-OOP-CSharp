@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EShop
 {
-    abstract class Customer : BaseUser
+    public abstract class Customer : BaseUser
     {
         public Cart cart { get; }
         public Customer()
@@ -16,11 +16,11 @@ namespace EShop
         }
     }
 
-    class AnonymousCustomer : Customer
+    public class AnonymousCustomer : Customer
     {
     }
 
-    class AuthenticatedCustomer : Customer
+    public class AuthenticatedCustomer : Customer
     {
         public string login { get; private set; }
         private string password;

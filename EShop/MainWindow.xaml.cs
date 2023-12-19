@@ -19,10 +19,27 @@ namespace EShop
     {
         List<AuthenticatedCustomer> customers = new List<AuthenticatedCustomer>();
         Customer current_customer = new AnonymousCustomer();
+        Product cola = new Product("Cola");
+        Product bread = new Product("Bread");
+        Product milk = new Product("Milk");
+        Product trashbags = new Product("Trash bags");
         public MainWindow()
         {
             InitializeComponent();
             
+            cola.price = 150;
+            cola.description = "Just cola, zero sugar -_-";
+
+            bread.price = 60;
+            bread.description = "Bread, tasty";
+
+            milk.price = 90;
+            milk.description = "cheap milk, outdated maybe";
+
+            trashbags.price = 125;
+            trashbags.description = "something useful finally";
+
+
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -109,8 +126,28 @@ namespace EShop
 
         private void CartButton_Click(object sender, RoutedEventArgs e)
         {
-            CartWindow cartWindow = new CartWindow();
+            CartWindow cartWindow = new CartWindow(current_customer);
             cartWindow.Show();
+        }
+
+        private void add1_Click(object sender, RoutedEventArgs e)
+        {
+            current_customer.cart.Add(cola);
+        }
+
+        private void add2_Click(object sender, RoutedEventArgs e)
+        {
+            current_customer.cart.Add(bread);
+        }
+
+        private void add3_Click(object sender, RoutedEventArgs e)
+        {
+            current_customer.cart.Add(milk);
+        }
+
+        private void add4_Click(object sender, RoutedEventArgs e)
+        {
+            current_customer.cart.Add(trashbags);
         }
     }
 }

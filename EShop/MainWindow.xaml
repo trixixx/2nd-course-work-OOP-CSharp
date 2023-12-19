@@ -5,17 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EShop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="850">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="797*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
         <Button Content="Login" Name="LoginButton" HorizontalAlignment="Left" Margin="7,10,0,0" VerticalAlignment="Top" Click="LoginButton_Click" IsEnabled="True" RenderTransformOrigin="1.16,0.834" Grid.Column="1"/>
         <Button Content="Sign up" Name="Signup" HorizontalAlignment="Left" Margin="64,10,0,0" VerticalAlignment="Top" Click="SignInButton_Click" IsEnabled="True" RenderTransformOrigin="1.16,0.834" Grid.Column="1"/>
         <Button Content="Logout" Name="logout" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Visibility="Collapsed" IsEnabled="False" Click="logout_Click" Grid.Column="1" />
         <TextBlock HorizontalAlignment="Left" Name="Username" Margin="13,12,0,0" TextWrapping="Wrap" Text="" IsEnabled="False" Visibility="Collapsed" VerticalAlignment="Top" Height="18" Width="139" Grid.Column="1"/>
-        <Button Grid.Column="1" Content="Cart" Name="CartButton" HorizontalAlignment="Left" Margin="648,30,0,0" VerticalAlignment="Top" Click="CartButton_Click"/>
+        <Button Grid.Column="2" Grid.Row="0" Content="Cart" Name="CartButton" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CartButton_Click"/>
         
+        <TextBlock Text="Cola" FontSize="20" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="Just cola, zero sugar -_-" FontSize="16" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="150 рублей" FontSize="20" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Grid.Row="1" Name="add1" Grid.Column="4" Content="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Height="27" Width="151" Click="add1_Click"/>
+
+        <TextBlock Text="Bred" FontSize="20" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="Bread, tasty" FontSize="16" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="60 рублей" FontSize="20" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Grid.Row="2" Name="add2" Grid.Column="4" Content="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Height="27" Width="151" Click="add2_Click"/>
+
+        <TextBlock Text="Milk" FontSize="20" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="cheap milk, outdated maybe" FontSize="16" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="90 рублей" FontSize="20" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Grid.Row="3" Name="add3" Grid.Column="4" Content="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Height="27" Width="151" Click="add3_Click"/>
+
+        <TextBlock Text="Trash bags" FontSize="20" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="something useful finally" FontSize="16" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="125 рублей" FontSize="20" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Grid.Row="4" Name="add4" Grid.Column="4" Content="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Height="27" Width="151" Click="add4_Click"/>
     </Grid>
 </Window>

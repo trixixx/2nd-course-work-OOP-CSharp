@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EShop
 {
-    abstract class BaseUser
+    public abstract class BaseUser
     {
         protected int id;
         protected static int counter = 0;

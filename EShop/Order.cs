@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace EShop
 {
-    class Order
+    public class Order
     {
         public string CustomerName;
         public string Adress;
         public double Price;
-        public bool IsPayed { get; private set; }
+        public bool IsPayed { get; set; }
 
         public Order(Cart c, string customername, string adress)
         {

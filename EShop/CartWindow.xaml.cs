@@ -19,9 +19,26 @@ namespace EShop
     /// </summary>
     public partial class CartWindow : Window
     {
-        public CartWindow()
+        Customer _customer;
+        public CartWindow(Customer customer)
         {
             InitializeComponent();
+            _customer = customer;
+            products.ItemsSource = customer.cart.products;
+        }
+
+        private void OrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            OrderWindow orderWindow;
+            if (_customer is AuthenticatedCustomer)
+            {
+                orderWindow = new OrderWindow((AuthenticatedCustomer)_customer);
+            }
+            else
+            {
+                orderWindow = new OrderWindow((AnonymousCustomer)_customer);
+            }
+            orderWindow.Show();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EShop
 {
-    class Cart
+    public class Cart
     {
         public int id;
         public List<Product> products = new List<Product>();
@@ -15,7 +15,7 @@ namespace EShop
         public void Remove(Product product) { products.Remove(product); }
     }
 
-    class Subscription : Cart
+    public class Subscription : Cart
     {
         public int period;
         public Subscription(Cart c)
